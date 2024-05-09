@@ -33,7 +33,7 @@ vector<int> BellmanFord::BellmanFordAlgo(Graph &graph, int source, int dest)
     for (int i = 0; i < graph.getNumEdges(); i++)
     {
             int w = graph.edges[i].weight;
-            if (distances[graph.edges[i].source] + w < distances[graph.edges[i].dest])
+            if (distances[graph.edges[i].source] != std::numeric_limits<int>::max() && distances[graph.edges[i].source] + w < distances[graph.edges[i].dest])
             {
                 // Indicates a negative cycle
                 return pathVertices;
@@ -98,6 +98,7 @@ std::vector<int> BellmanFord::BellmanFordToFindNegativeCycle(Graph &graph)
         {
             // Indicates a negative cycle
             int dest = graph.edges[i].dest;
+            pi[dest] = graph.edges[i].source;
             while(!contains(pathVertices,dest-1))
             {
                 pathVertices.push_back(dest-1);
@@ -106,12 +107,38 @@ std::vector<int> BellmanFord::BellmanFordToFindNegativeCycle(Graph &graph)
             if(pathVertices.size() > 0)
             {
                 pathVertices.push_back(dest-1);
+                pathVertices = checkVerTwice(pathVertices);
                 break;
             }
         }
     }
     return pathVertices;
 }
+std::vector<int>  BellmanFord::checkVerTwice(std::vector<int> pathVertices)
+{
+    std::vector<int> result;
+    bool foundTwice = false;
+
+    for (int i = 0; i < pathVertices.size(); i++)
+    {
+        int current = pathVertices[i];
+        for (int j = i + 1; j < pathVertices.size(); j++)
+        {
+            if (pathVertices[j] == current)
+            {
+                foundTwice = true;
+                result.assign(pathVertices.begin() + i, pathVertices.begin() + j + 1);
+                break;
+            }
+        }
+        if (foundTwice)
+        {
+            break;
+        }
+    }
+    return result;
+    // If no vertex appears twice, return an empty vector
+};
 bool BellmanFord::contains(std::vector<int> pathVertices, int ver)
 {
     for(int i = 0; i < pathVertices.size(); i++)

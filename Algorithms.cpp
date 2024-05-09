@@ -131,7 +131,7 @@ string Algorithms::shortestPath(Graph &graph, int source, int dest)
     }
     if(pathVertices.size() > 0)
     {
-        string path = std::to_string(0) + "->";
+        string path = std::to_string(source) + "->";
         for(int i = pathVertices.size()-1; i >= 0; i--)
         {
             path += std::to_string(pathVertices[i]);

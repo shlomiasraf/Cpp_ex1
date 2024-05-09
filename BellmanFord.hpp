@@ -16,6 +16,7 @@ namespace ariel {
         static vector<int> BellmanFordAlgo(Graph&, int, int);
         static vector<int> BellmanFordToFindNegativeCycle(Graph&);
         static bool contains(std::vector<int>, int);
+        static vector<int> checkVerTwice(std::vector<int>);
 
     };
 }

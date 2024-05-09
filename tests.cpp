@@ -159,12 +159,12 @@ TEST_CASE("Test isContainsNegativeCycle2")
 {
     ariel::Graph g;
     vector<vector<int>> graph = {
-        {0, 9, 7, 8},
-        {9, 0, -1, 0},
+        {0, 1, 2, 4},
+        {1, 0, -1, 0},
         {0, -1, 0, 0},
-        {0, 0, 7, 0,}};
+        {0, 0, 2, 0,}};
     g.loadGraph(graph);
-    CHECK(ariel::Algorithms::negativeCycle(g) == "The negative cycle is: 2->1->2");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "The negative cycle is: 1->2->1");
 
 }
 TEST_CASE("Test isContainsNegativeCycle3")
