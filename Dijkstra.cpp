@@ -1,15 +1,13 @@
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #include "Dijkstra.hpp"
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
 #include <queue>
 #include <string>
-using namespace ariel;
-vector<int> Dijkstra::DijkstraAlgo(Graph &graph, int source, int dest)
+#include <limits>
+#include <algorithm>
+
+std::vector<int> ariel::Dijkstra::DijkstraAlgo(Graph &graph, int source, int dest)
 {
     std::vector<int> distances(graph.getNumVertices(), std::numeric_limits<int>::max()); // Distance array
     std::vector<int> pi(graph.getNumVertices(), -1); // Predecessor array

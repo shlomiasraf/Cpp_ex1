@@ -1,13 +1,15 @@
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
+
 #include "doctest.h"
 #include "Algorithms.hpp"
 #include "Graph.hpp"
 
-using namespace std;
 
 TEST_CASE("Test isConnected")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0},
         {1, 0, 1},
         {0, 1, 0}};
@@ -17,7 +19,7 @@ TEST_CASE("Test isConnected")
 TEST_CASE("Test isConnected2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph= {
+    std::vector<std::vector<int>> graph= {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 0, 0},
         {1, 1, 0, 1, 0},
@@ -29,7 +31,7 @@ TEST_CASE("Test isConnected2")
 TEST_CASE("Test isConnected3")
 {
     ariel::Graph g;
-    vector<vector<int>> graph= {
+    std::vector<std::vector<int>> graph= {
         {0, 2, 4, 5, 0},
         {2, 0, 0, 0, 0},
         {4, 0, 0, 0, 0},
@@ -40,7 +42,7 @@ TEST_CASE("Test isConnected3")
 }
 TEST_CASE("Test shortestPath") {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0},
         {1, 0, 1},
         {0, 1, 0}};
@@ -50,7 +52,7 @@ TEST_CASE("Test shortestPath") {
 TEST_CASE("Test shortestPath2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 0, 0},
         {1, 1, 0, 1, 0},
@@ -62,7 +64,7 @@ TEST_CASE("Test shortestPath2")
 TEST_CASE("Test shortestPathWithWeight")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0, 0, 0},
         {1, 0, 3, 0, 3},
         {0, 3, 0, 4, 0},
@@ -75,7 +77,7 @@ TEST_CASE("Test shortestPathWithWeight")
 TEST_CASE("Test shortestPathWithWeight2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0, 0, 0},
         {1, 0, 3, 0, 3},
         {0, 3, 0, 4, 0},
@@ -88,7 +90,7 @@ TEST_CASE("Test shortestPathWithWeight2")
 TEST_CASE("Test shortestPathWithNegativeWeight")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0, 2},
         {1, 0, 0, 2},
         {0, -1, 0, 5},
@@ -100,7 +102,7 @@ TEST_CASE("Test shortestPathWithNegativeWeight")
 TEST_CASE("Test shortestPathWithNegativeWeight2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0, 4},
         {1, 0, 0, 2},
         {0, -1, 0, 5},
@@ -111,7 +113,7 @@ TEST_CASE("Test shortestPathWithNegativeWeight2")
 }
 TEST_CASE("Test isContainsCycle") {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0},
         {1, 0, 1},
         {0, 1, 0}};
@@ -121,7 +123,7 @@ TEST_CASE("Test isContainsCycle") {
 TEST_CASE("Test isContainsCycle2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 0, 0},
         {1, 1, 0, 1, 0},
@@ -133,7 +135,7 @@ TEST_CASE("Test isContainsCycle2")
 TEST_CASE("Test isContainsCycle3")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 2, 4, 0, 0},
         {0, 0, 2, 0, 0},
         {0, 0, 0, -2, 0},
@@ -146,7 +148,7 @@ TEST_CASE("Test isContainsCycle3")
 TEST_CASE("Test isContainsNegativeCycle")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0, 2},
         {1, 0, 0, -2},
         {0, -1, 0, 5},
@@ -158,7 +160,7 @@ TEST_CASE("Test isContainsNegativeCycle")
 TEST_CASE("Test isContainsNegativeCycle2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 2, 4},
         {1, 0, -1, 0},
         {0, -1, 0, 0},
@@ -170,7 +172,7 @@ TEST_CASE("Test isContainsNegativeCycle2")
 TEST_CASE("Test isContainsNegativeCycle3")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 2, 4, 0, 0},
         {0, 0, 2, 0, 0},
         {0, 0, 0, -2, 0},
@@ -183,7 +185,7 @@ TEST_CASE("Test isContainsNegativeCycle3")
 TEST_CASE("Test isBipartite")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 0},
         {1, 0, 1},
         {0, 1, 0}};
@@ -193,7 +195,7 @@ TEST_CASE("Test isBipartite")
 TEST_CASE("Test isBipartite2")
 {
     ariel::Graph g;
-    vector<vector<int>> graph2 = {
+    std::vector<std::vector<int>> graph2 = {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 0, 0},
         {1, 1, 0, 1, 0},
@@ -205,7 +207,7 @@ TEST_CASE("Test isBipartite2")
 TEST_CASE("Test isBipartite3")
 {
     ariel::Graph g;
-    vector<vector<int>> graph3 = {
+    std::vector<std::vector<int>> graph3 = {
         {0, 1, 0, 0, 0},
         {1, 0, 3, 0, 0},
         {0, 3, 0, 4, 0},
@@ -217,7 +219,7 @@ TEST_CASE("Test isBipartite3")
 TEST_CASE("Test invalid graph")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {
+    std::vector<std::vector<int>> graph = {
         {0, 1, 2, 0},
         {1, 0, 3, 0},
         {2, 3, 0, 4},
@@ -228,6 +230,6 @@ TEST_CASE("Test invalid graph")
 TEST_CASE("Test empty graph")
 {
     ariel::Graph g;
-    vector<vector<int>> graph = {};
+    std::vector<std::vector<int>> graph = {};
     CHECK_THROWS(g.loadGraph(graph));
 }

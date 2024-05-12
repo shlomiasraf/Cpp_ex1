@@ -1,15 +1,15 @@
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
+    
 #include "Graph.hpp"
 #include <iostream>
 #include <vector>
 
-using namespace ariel;
-using namespace std;
+
+ariel::Graph::Graph() = default;
 
 
-Graph::Graph() =default;
-
-
-void Graph::loadGraph(vector<vector<int> >& graph)
+void ariel::Graph::loadGraph(std::vector<std::vector<int> >& graph)
 {
     // Check if the graph is matrix
     int numRows = graph.size();
@@ -38,59 +38,67 @@ void Graph::loadGraph(vector<vector<int> >& graph)
     {
         for (int j = 0; j < numVertices; j++)
         {
-            if(graph[i][j] < 0)
+            if(this->graph[i][j] < 0)
             {
-                hasNegativeEdge = true;
+                this->hasNegativeEdge = true;
             }
-            if(graph[i][j] != graph[j][i])
+            if(this->graph[i][j] != this->graph[j][i])
             {
-                isDirected = true;
+                this->isDirected = true;
             }
-            if(graph[i][j] != 0)
+            if(this->graph[i][j] != 0)
             {
                 Edge edge;
                 edge.source = i;
                 edge.dest = j;
                 edge.weight = graph[i][j];
-                edges.push_back(edge);
-                numEdges++;
-                neighbors[i].push_back(j);
+                this->edges.push_back(edge);
+                this->numEdges++;
+                this->neighbors[i].push_back(j);
             }
-            if(graph[i][j] != 0 && graph[i][j] != 1)
+            if(this->graph[i][j] != 0 && this->graph[i][j] != 1)
             {
-                hasWeight = true;
+                this->hasWeight = true;
             }
         }
     }
 }
-void Graph::printGraph()
+void ariel::Graph::printGraph()
 {
-    cout << "Graph with " << numVertices << " vertices and " << numEdges << " edges." << endl;
+    if(this->isDirected)
+    {
+        std::cout << "Graph with " << this->numVertices << " vertices and " << this->numEdges << " edges." << std::endl;
+    }
+    else
+    {
+        std::cout << "Graph with " << this->numVertices << " vertices and " << this->numEdges/2 << " edges." << std::endl;
+    }
 }
-int Graph::getNumVertices()
+int ariel::Graph::getNumVertices()
 {
-    return numVertices;
+    return this->numVertices;
 }
-std::vector<std::vector<int>> Graph::getNeighbors()
+std::vector<std::vector<int>> ariel::Graph::getNeighbors()
 {
-    return neighbors;
+    return this->neighbors;
 }
-bool Graph::getIfDirected()
+bool ariel::Graph::getIfDirected()
 {
-    return isDirected;
+    return this->isDirected;
 }
-std::vector<std::vector<int> > Graph::getMatrix() {
-    return graph;
-}
-bool Graph::getIfHasNegetiveEdge()
+std::vector<std::vector<int> > ariel::Graph::getMatrix() 
 {
-    return hasNegativeEdge;
+    return this->graph;
 }
-bool Graph::getIfHasWeight()
+bool ariel::Graph::getIfHasNegetiveEdge()
 {
-    return hasWeight;
+    return this->hasNegativeEdge;
 }
-int Graph::getNumEdges()
+bool ariel::Graph::getIfHasWeight()
 {
-    return numEdges;
+    return this->hasWeight;
+}
+int ariel::Graph::getNumEdges()
+{
+    return this->numEdges;
 }

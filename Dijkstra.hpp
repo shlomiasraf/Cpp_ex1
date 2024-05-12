@@ -1,18 +1,16 @@
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
 #include "Graph.hpp"
 
-using namespace std;
-
-namespace ariel {
+namespace ariel 
+{
     class Dijkstra
     {
         public:
-            static vector<int> DijkstraAlgo(Graph&, int, int);
+            static std::vector<int> DijkstraAlgo(Graph&, int, int);
     };
 }
 

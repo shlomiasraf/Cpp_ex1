@@ -1,10 +1,10 @@
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #include "BellmanFord.hpp"
-using namespace ariel;
-vector<int> BellmanFord::BellmanFordAlgo(Graph &graph, int source, int dest)
+#include <limits>
+#include <algorithm>
+std::vector<int> ariel::BellmanFord::BellmanFordAlgo(Graph &graph, int source, int dest)
 {
     std::vector<int> pathVertices;
     std::vector<int> distances(graph.getNumVertices(), std::numeric_limits<int>::max()); // Distance array
@@ -46,10 +46,10 @@ vector<int> BellmanFord::BellmanFordAlgo(Graph &graph, int source, int dest)
     }
     return pathVertices;
 }
-std::vector<int> BellmanFord::BellmanFordToFindNegativeCycle(Graph &graph)
+std::vector<int> ariel::BellmanFord::BellmanFordToFindNegativeCycle(Graph &graph)
 {
     // Create a 2D vector to represent the adjacency matrix
-    vector<vector<int>> gd(graph.getNumVertices()+1, vector<int>(graph.getNumVertices()+1, 0));
+    std::vector<std::vector<int>> gd(graph.getNumVertices()+1, std::vector<int>(graph.getNumVertices()+1, 0));
 
     // Set the first row to represent edges from the new vertex to existing vertices
     for (int j = 1; j < graph.getNumVertices()+1; j++)
@@ -114,7 +114,7 @@ std::vector<int> BellmanFord::BellmanFordToFindNegativeCycle(Graph &graph)
     }
     return pathVertices;
 }
-std::vector<int>  BellmanFord::checkVerTwice(std::vector<int> pathVertices)
+std::vector<int> ariel::BellmanFord::checkVerTwice(std::vector<int> pathVertices)
 {
     std::vector<int> result;
     bool foundTwice = false;
@@ -139,7 +139,7 @@ std::vector<int>  BellmanFord::checkVerTwice(std::vector<int> pathVertices)
     return result;
     // If no vertex appears twice, return an empty vector
 };
-bool BellmanFord::contains(std::vector<int> pathVertices, int ver)
+bool ariel::BellmanFord::contains(std::vector<int> pathVertices, int ver)
 {
     for(int i = 0; i < pathVertices.size(); i++)
     {

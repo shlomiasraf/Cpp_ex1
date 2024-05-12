@@ -1,12 +1,10 @@
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #include "BFS.hpp"
 #include <queue>
 #include <string>
-using namespace ariel;
-vector<int> BFS::BFSAlgo(Graph &graph, int source, int dest)
+std::vector<int> ariel::BFS::BFSAlgo(Graph &graph, int source, int dest)
 {
     std::vector<int> pathVertices;
     std::vector<std::string> color(graph.getNumVertices(), "white"); // Initialize color array

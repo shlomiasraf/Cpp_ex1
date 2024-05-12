@@ -1,4 +1,5 @@
-
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #include "Algorithms.hpp"
 #include <queue>
@@ -9,9 +10,8 @@
 #include "DFS.hpp"
 #include "Dijkstra.hpp"
 
-using namespace ariel;
 
-int Algorithms::isConnected(Graph &graph)
+int ariel::Algorithms::isConnected(Graph &graph)
 {
     int numVertices = graph.getNumVertices();
 
@@ -49,8 +49,9 @@ int Algorithms::isConnected(Graph &graph)
         }
         return 1;
     }
+    return 0;
 }
-std::string Algorithms::isBipartite(Graph &graph) {
+std::string ariel::Algorithms::isBipartite(Graph &graph) {
     int numVertices = graph.getNumVertices();
     int colorArr[numVertices];
 
@@ -96,8 +97,8 @@ std::string Algorithms::isBipartite(Graph &graph) {
             }
         }
     }
-    string groupA = "The graph is bipartite: A={";
-    string groupB = "B={";
+    std::string groupA = "The graph is bipartite: A={";
+    std::string groupB = "B={";
     for(int v = 0; v < numVertices; v++)
     {
         if(colorArr[v] == 1)
@@ -114,9 +115,9 @@ std::string Algorithms::isBipartite(Graph &graph) {
     groupB.replace(groupB.rfind(","), 2, "}");
     return groupA + groupB; // Bipartite
 }
-string Algorithms::shortestPath(Graph &graph, int source, int dest)
+std::string ariel::Algorithms::shortestPath(Graph &graph, int source, int dest)
 {
-    vector<int> pathVertices;
+    std::vector<int> pathVertices;
     if(!graph.getIfHasWeight())
     {
         pathVertices = BFS::BFSAlgo(graph,source,dest);
@@ -131,7 +132,7 @@ string Algorithms::shortestPath(Graph &graph, int source, int dest)
     }
     if(pathVertices.size() > 0)
     {
-        string path = std::to_string(source) + "->";
+        std::string path = std::to_string(source) + "->";
         for(int i = pathVertices.size()-1; i >= 0; i--)
         {
             path += std::to_string(pathVertices[i]);
@@ -144,7 +145,7 @@ string Algorithms::shortestPath(Graph &graph, int source, int dest)
     }
     return "-1";
 }
-string Algorithms::isContainsCycle(Graph &graph)
+std::string ariel::Algorithms::isContainsCycle(Graph &graph)
 {
     std::vector<bool> visited(graph.getNumVertices(), false);
     std::vector<int> pathVertices;
@@ -153,7 +154,7 @@ string Algorithms::isContainsCycle(Graph &graph)
         if (!visited[i]) {
             if (DFS::DFSToFindCycle(i, -1, visited, graph, pathVertices))
             {
-                string path = "The cycle is: ";
+                std::string path = "The cycle is: ";
                 for (int j = 0; j < pathVertices.size(); j++)
                 {
                     path += std::to_string(pathVertices[j]);
@@ -168,14 +169,14 @@ string Algorithms::isContainsCycle(Graph &graph)
     }
     return "0";
 }
-string Algorithms::negativeCycle(Graph &graph)
+std::string ariel::Algorithms::negativeCycle(Graph &graph)
 {
     if(graph.getIfHasNegetiveEdge() && graph.getIfDirected())
     {
         std::vector<int> pathVertices = BellmanFord::BellmanFordToFindNegativeCycle(graph);
         if(pathVertices.size() > 0)
         {
-            string path = "The negative cycle is: ";
+            std::string path = "The negative cycle is: ";
             for (int j = pathVertices.size()-1; j >= 0; j--)
             {
                 path += std::to_string(pathVertices[j]);

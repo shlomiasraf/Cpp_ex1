@@ -1,13 +1,10 @@
-//
-// Created by Shlomi Asraf on 30/04/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #ifndef ALGORITHMS_HPP
 #define ALGORITHMS_HPP
 #include "Graph.hpp"
-
-using namespace std;
-
+#include <string>
 
 namespace ariel
 {
@@ -15,10 +12,10 @@ namespace ariel
     {
         public:
             static int isConnected(Graph&);
-            static string shortestPath(Graph&, int, int);
-            static string isContainsCycle(Graph&);
-            static string isBipartite(Graph&);
-            static string negativeCycle(Graph&);
+            static std::string shortestPath(Graph&, int, int);
+            static std::string isContainsCycle(Graph&);
+            static std::string isBipartite(Graph&);
+            static std::string negativeCycle(Graph&);
 
     };
 }

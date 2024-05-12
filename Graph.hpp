@@ -1,3 +1,6 @@
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
+    
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
@@ -21,7 +24,7 @@ namespace ariel
                 int source;
                 int dest;
                 int weight;
-            };
+            } Edge;
             std::vector<Edge> edges;
 
             Graph();

@@ -1,14 +1,12 @@
-//
-// Created by Shlomi Asraf on 03/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #ifndef DFS_H
 #define DFS_H
 #include "Graph.hpp"
 
-using namespace std;
-
-namespace ariel {
+namespace ariel 
+{
     class DFS
     {
         public:
